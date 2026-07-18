@@ -1,0 +1,63 @@
+name: Update README visuals
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "15 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme-visuals
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate repository study activity
+        run: |
+          mkdir -p dist
+          node scripts/study-dashboard/generate-dashboard.mjs --output dist/study-activity.svg
+
+      - name: Generate contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg?palette=github-dark
+
+      - name: Publish generated SVG files
+        shell: bash
+        run: |
+          set -euo pipefail
+          publish_dir="${RUNNER_TEMP}/readme-visuals"
+
+          if git ls-remote --exit-code --heads origin readme-visuals >/dev/null 2>&1; then
+            git fetch origin readme-visuals
+            git worktree add "${publish_dir}" FETCH_HEAD
+          else
+            git worktree add --detach "${publish_dir}"
+            git -C "${publish_dir}" switch --orphan readme-visuals
+          fi
+
+          cp dist/*.svg "${publish_dir}/"
+          git -C "${publish_dir}" config user.name "github-actions[bot]"
+          git -C "${publish_dir}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "${publish_dir}" add --all
+
+          if git -C "${publish_dir}" diff --cached --quiet; then
+            echo "README visuals are already current."
+            exit 0
+          fi
+
+          git -C "${publish_dir}" commit -m "chore: update README visuals"
+          git -C "${publish_dir}" push origin HEAD:readme-visuals
