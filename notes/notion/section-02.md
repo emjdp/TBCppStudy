@@ -1,12 +1,15 @@
 ---
 강의 수: 14
-상태: 진행 중
+상태: 완료
 섹션 번호: 2
 섹션명: 섹션 2. C++의 기본적인 사용법
-완료일: null
-완료한 강의 수: 0
+완료일:
+  end: null
+  start: 2026-07-19
+  time_zone: null
+완료한 강의 수: 14
 중요도: 기본
-진도율: 0
+진도율: 100
 총 시간: 3시간 27분
 ---
 
@@ -24,6 +27,9 @@ int main()
 }
 error C4700: uninitialized local variable 'x' used
 ```
+<br><br>`int y = (x > 0) ? 1 : 2; // 삼항 연산자, x가 0보다 크면(참이면) 왼쪽거 실행 y = 1`
+삼항 연산자의 존재에 대해서 알게됨.
+선언과 정의, 헤더파일, 헤더가드의 필요성, 네임스페이스, 전처리기 기초.<br><br><br>`#pragma once` 로 중복 되는 것을 방지.
 ## 💻 코드 스니펫
 ```cpp
 #include <iostream> //preprocessor directive
@@ -127,9 +133,53 @@ int main()
 }
 
 ```
+```cpp
+#include <iostream>
+
+namespace MySpace1
+{
+    namespace InnerSpace
+    {
+        int my_function()
+        {
+            return 0;
+        }
+    }
+    int doSomething(int a, int b)
+    {
+        return a + b;
+    }
+}
+
+namespace Myspace2
+{
+    int doSomething(int a, int b)
+    {
+        return a * b;
+    }
+}
+
+using namespace std;
+
+int main()
+{
+    using namespace MySpace1;
+    doSomething(3, 4);
+    MySpace1::InnerSpace::my_function();
+    InnerSpace::my_function(); // using namespace MySpace1; 이거 해줘서 가능. 바로 my_function() 하려면 다음이 필요
+    // using namespace MySpace1::InnerSpace;
+   /*
+    cout << MySpace1::doSomething(3, 4) << endl;
+    cout << MySpace2::doSomething(3, 4) << endl;
+   */
+}
+
+```
+Chapter2_10.cpp에 정의된 `#define LIKE_APPLE`은 해당 파일 안에서만 유효.<br>독립적으로 컴파일되는 different_source.cpp는 이 매크로의 존재를 알지 못하므로, `different_source.cpp` 내부의 `#ifdef LIKE_APPLE` 조건문은 거짓이 되어 `"Orange"`가 출력
 ## 🔥 헷갈린 것들 / 질문
-- `std::cout << &x << std::endl;`  내거가 강사보다 긴 이유는 나는 x64 강사는 x86으로 빌드 해서?
+- `std::cout << &x << std::endl;`  내거가 강사보다 긴 이유는 나는 x64 강사는 x86으로 빌드 해서? <br>→ yes
+- chapter2_10.cpp 에서 different_source.cpp를 include 안했는데 왜 작동하는거지?<br>→ 컴파일이 완료된 후, 링커가 각각 컴파일되어 생성된 오브젝트 파일들을 하나로 묶었기 때문.
 ## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
+- [x] 강의 완주
+- [x] 코드 직접 따라 침
+- [x] 복습 1회
