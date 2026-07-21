@@ -1,5 +1,5 @@
 // Chapter3_8.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// 리터럴 상수
 
 #include <iostream>
 
@@ -20,5 +20,11 @@ int main()
 	cout << y << endl;
 	int z = 0b1010'1010; // 2진수 ' 기호 컴파일러가 무시해줌
 	cout << z << endl;
+
+	int num_items = 123;
+	// int price = num_items * 10 보다는
+	const int price_per_item = 10;
+	int price = num_items * price_per_item;
+
 	return 0;
 }
