@@ -412,6 +412,28 @@ int main()
 }
 
 ```
+```cpp
+    int x = 7;
+    int y = 4;
+
+    cout << x / y << endl; // 1
+    cout << float(x) / y << endl; // 1.75
+    cout << x / float(y) << endl; // 1.75
+    cout << float(x) / float(y) << endl; // 1.75
+    cout << -5 / 2 << endl; // -2 -0.5는 버림
+
+    int  z = x;
+    z += y; // z = z + y
+```
+```cpp
+    int x = 6, y = 6;
+    cout << x << " " << y << endl; // 6 6
+    cout << ++x << " " << --y << endl; // 7 5
+    cout << x << " " << y << endl; // 7 5
+    cout << x++ << " " << y-- << endl; // 7 5
+    cout << x << " " << y << endl; // 8 4
+
+```
 ## 🔥 헷갈린 것들 / 질문
 -
 ## ✅ 복습 체크
