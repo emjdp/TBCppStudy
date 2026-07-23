@@ -27,4 +27,7 @@
   <Project Path="Chapter4_2/Chapter4_2.vcxproj" Id="3745ffcf-6ce7-47a2-b8a7-ecf38fbb92fe" />
   <Project Path="Chapter4_3/Chapter4_3.vcxproj" Id="3c30c193-f201-4732-8d9d-a5d702972cf0" />
   <Project Path="Chapter4_4/Chapter4_4.vcxproj" Id="e620b0f2-257e-4ff0-9903-98a8f75fc629" />
+  <Project Path="Chapter4_5/Chapter4_5.vcxproj" Id="031436c5-c4a3-4e9b-8e2a-51ef654a7c8f" />
+  <Project Path="Chapter4_6/Chapter4_6.vcxproj" Id="1424f0e5-7252-41bf-9e92-c5a26b0ac54b" />
+  <Project Path="Chapter4_7/Chapter4_7.vcxproj" Id="2a5f2a69-e96a-45e9-9f3b-29c5840479b0" />
 </Solution>
