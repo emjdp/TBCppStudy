@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="222" viewBox="0 0 920 222" role="img" aria-labelledby="title desc">
   <title id="title">TBCppStudy repository study activity</title>
-  <desc id="desc">7 study days, 7 day current streak, 7 day longest streak, 11 commits.</desc>
+  <desc id="desc">7 study days, 7 day current streak, 7 day longest streak, 12 commits.</desc>
   <style>
     .background { fill: #0d1117; stroke: #30363d; }
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f0f6fc; }
@@ -16,7 +16,7 @@
   </style>
   <rect class="background" x="0.5" y="0.5" width="919" height="221" rx="12" />
   <text class="heading" x="24" y="30">Study Activity · TBCppStudy</text>
-  <text class="stat" x="24" y="54">Study days 7  ·  Current streak 7d  ·  Longest streak 7d  ·  Commits 11  ·  Last study 2026-07-24</text>
+  <text class="stat" x="24" y="54">Study days 7  ·  Current streak 7d  ·  Longest streak 7d  ·  Commits 12  ·  Last study 2026-07-24</text>
   <text class="month" x="112" y="76">Aug</text>
   <text class="month" x="187" y="76">Sep</text>
   <text class="month" x="247" y="76">Oct</text>
@@ -401,7 +401,7 @@
   <rect class="level-1" x="862" y="122" width="12" height="12" rx="2"><title>2026-07-21: 1 commit</title></rect>
   <rect class="level-1" x="862" y="137" width="12" height="12" rx="2"><title>2026-07-22: 1 commit</title></rect>
   <rect class="level-1" x="862" y="152" width="12" height="12" rx="2"><title>2026-07-23: 1 commit</title></rect>
-  <rect class="level-1" x="862" y="167" width="12" height="12" rx="2"><title>2026-07-24: 1 commit</title></rect>
+  <rect class="level-2" x="862" y="167" width="12" height="12" rx="2"><title>2026-07-24: 2 commits</title></rect>
   <text class="legend" x="772" y="211">Less</text>
   <rect class="level-0" x="817" y="200" width="12" height="12" rx="2" />
   <rect class="level-1" x="832" y="200" width="12" height="12" rx="2" />
