@@ -1,20 +1,46 @@
 // Chapter4_7.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// 비트단위 연산자
 
 #include <iostream>
-
+#include <bitset>
 int main()
 {
-    std::cout << "Hello World!\n";
+    using namespace std;
+    // << left shift
+    // >> right shift
+    // ~ , & , |, ^
+
+    unsigned int a = 3;
+    cout << std::bitset<8>(a) << " " << a << endl;
+
+    cout << std::bitset<8>(a << 1) << " " << (a << 1) << endl;
+    cout << std::bitset<8>(a << 2) << " " << (a << 2) << endl;
+    cout << std::bitset<8>(a << 3) << " " << (a << 3) << endl;
+    cout << std::bitset<8>(a << 4) << " " << (a << 4) << endl;
+
+    unsigned int b = 1024;
+    cout << std::bitset<16>(b) << " " << b << endl;
+
+    cout << std::bitset<16>(b >> 1) << " " << (b >> 1) << endl;
+    cout << std::bitset<16>(b >> 2) << " " << (b >> 2) << endl;
+    cout << std::bitset<16>(b >> 3) << " " << (b >> 3) << endl;
+    cout << std::bitset<16>(b >> 4) << " " << (b >> 4) << endl;
+
+    cout << std::bitset<16>(~b) << " " << (~b) << endl; // ! = logical not. ~ = bitwise not
+
+    unsigned int c = 0b1100;
+    unsigned int d = 0b0110;
+    
+    cout << c << " " << d << endl;
+    cout << std::bitset<4>(c & d) << endl; // bitwise AND
+    cout << std::bitset<4>(c | d) << endl; // bitwise OR
+    cout << std::bitset<4>(c ^ d) << endl; // bitwise XOR
+
+    // c &= d;
+    
+    cout << std::bitset<8>(d >> 2) << " " << (d >> 2) << endl; // 9가 아니라 1이 됨. 벗어나면 사라짐
+
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

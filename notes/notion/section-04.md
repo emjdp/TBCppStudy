@@ -395,6 +395,15 @@
 </tr>
 </table>
 [https://en.wikipedia.org/wiki/Operators_in_C_and_C](https://en.wikipedia.org/wiki/Operators_in_C_and_C)
+0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10 = 10\^1 + 0<br>11 = 10\^1 + 1<br>12<br>13<br>…<br>337 = 300 + 30 + 7 = 10\^2 \* 3 + 10 \^ 1 \* 3 + 10\^0 \* 7
+---
+0<br>1<br>10 = 2\^1\*1 + 2\^0\*0 = 2<br>11 = 2\^1\*1 + 2\^1\*1 = 3<br><br><br>7654 3210<br>0101 1110<br>2\^7\*0 + 64\*1 + 32\*0 + 16\*1 + 8\*1 + 4\*1 + 2\*1 + 2\^0\*0<br>= 94<br>
+148 / 2 = 74 r0<br>74 / 2 = 37 r0<br>37 / 2 = 18 r1<br>18 / 2 = 9 r0<br>9 / 2 = 4 r1<br>4 / 2 = 2 r0<br>2 / 2 = 1 r0<br>1 / 2 = 0 r1
+1001 0100
+-5 <br><span color="green">0</span>000 0101 / <span color="green">맨 앞은 부호 </span>← 5<br>보수 complement<br>1111 1010<br>1111 1011 ← -5 / 1을 더해서 0의 표현을 통일시킴<br><br>1을 안 더하면<br>0000 0000<br>1111 1111<br>이렇게 공존.<br>
+1001 1110 음수<br>0110 0001<br>0110 0010 → 98 → -98<br>
+singned vs unsigned
+1001 1110 → 2\^7\*1 + 2\^4\*1 + 2\^3\*1 + 2\^2\*1 + 2\^1\*1
 ## 💻 코드 스니펫
 ```cpp
 #include <iostream>
@@ -543,9 +552,55 @@ int main()
     return 0;
 }
 ```
+```cpp
+#include <iostream>
+#include <bitset>
+int main()
+{
+    using namespace std;
+    // << left shift
+    // >> right shift
+    // ~ , & , |, ^
+
+    unsigned int a = 3;
+    cout << std::bitset<8>(a) << " " << a << endl;
+
+    cout << std::bitset<8>(a << 1) << " " << (a << 1) << endl;
+    cout << std::bitset<8>(a << 2) << " " << (a << 2) << endl;
+    cout << std::bitset<8>(a << 3) << " " << (a << 3) << endl;
+    cout << std::bitset<8>(a << 4) << " " << (a << 4) << endl;
+
+    unsigned int b = 1024;
+    cout << std::bitset<16>(b) << " " << b << endl;
+
+    cout << std::bitset<16>(b >> 1) << " " << (b >> 1) << endl;
+    cout << std::bitset<16>(b >> 2) << " " << (b >> 2) << endl;
+    cout << std::bitset<16>(b >> 3) << " " << (b >> 3) << endl;
+    cout << std::bitset<16>(b >> 4) << " " << (b >> 4) << endl;
+
+    cout << std::bitset<16>(~b) << " " << (~b) << endl; // ! = logical not. ~ = bitwise not
+
+    unsigned int c = 0b1100;
+    unsigned int d = 0b0110;
+
+    cout << c << " " << d << endl;
+    cout << std::bitset<4>(c & d) << endl; // bitwise AND
+    cout << std::bitset<4>(c | d) << endl; // bitwise OR
+    cout << std::bitset<4>(c ^ d) << endl; // bitwise XOR
+
+    // c &= d;
+
+    cout << std::bitset<8>(d >> 2) << " " << (d >> 2) << endl; // 9가 아니라 1이 됨. 벗어나면 사라짐
+
+
+    return 0;
+}
+
+```
 ## 🔥 헷갈린 것들 / 질문
 - <br><br>`cout << x % 2 == 0 ? "even" : "odd" << endl; // 안되는 이유는?`
 	(cout \<\< (x % 2 == 0)) ? "even" : ("odd" \<\< endl); 이렇게 해석해 버림
+	<br>비트 이동(Shift) 연산은 비트들을 말 그대로 **한쪽 방향으로 밀어내는 연산.<br>**넘어가 버리면 사라짐.
 ## ✅ 복습 체크
 - [ ] 강의 완주
 - [ ] 코드 직접 따라 침

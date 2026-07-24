@@ -83,7 +83,7 @@ function Get-StudyCommitMessage {
 
     if ($lessonsByChapter.Count -eq 1) {
         $chapter = @($lessonsByChapter.Keys)[0]
-        $lessons = @($lessonsByChapter[$chapter]) | Sort-Object
+        $lessons = @(@($lessonsByChapter[$chapter]) | Sort-Object)
         if ($lessons.Count -eq 1) {
             return "study: practice chapter $chapter lesson $($lessons[0])"
         }
