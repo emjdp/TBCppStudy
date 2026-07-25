@@ -1,12 +1,15 @@
 ---
 강의 수: 9
-상태: 진행 중
+상태: 완료
 섹션 번호: 4
 섹션명: 섹션 4. 연산자들
-완료일: null
-완료한 강의 수: 1
+완료일:
+  end: null
+  start: 2026-07-25
+  time_zone: null
+완료한 강의 수: 9
 중요도: 기본
-진도율: 11
+진도율: 100
 총 시간: 3시간 38분
 ---
 
@@ -404,6 +407,7 @@
 1001 1110 음수<br>0110 0001<br>0110 0010 → 98 → -98<br>
 singned vs unsigned
 1001 1110 → 2\^7\*1 + 2\^4\*1 + 2\^3\*1 + 2\^2\*1 + 2\^1\*1
+**전위(Prefix, \`++x\`)와 후위(Postfix, \`x++\`) 증감 연산자의 차이**<br>전위는 사용 전에 변경. 후위는 사용 후 변경
 ## 💻 코드 스니펫
 ```cpp
 #include <iostream>
@@ -597,11 +601,89 @@ int main()
 }
 
 ```
+```cpp
+#include <iostream>
+#include <bitset>
+
+int main()
+{
+    using namespace std;
+    //bool iteam1_flage = false;
+    //bool iteam2_flage = false;
+    //bool iteam3_flage = false;
+    //bool iteam4_flage = false;
+    const unsigned char opt0 = 1 << 0;
+    const unsigned char opt1 = 1 << 1;
+    const unsigned char opt2 = 1 << 2;
+    const unsigned char opt3 = 1 << 3;
+
+    cout << bitset<8>(opt0) << endl;
+    cout << bitset<8>(opt1) << endl;
+    cout << bitset<8>(opt2) << endl;
+    cout << bitset<8>(opt3) << endl;
+
+    unsigned char items_flage = 0;
+
+    cout << "No item " << bitset<8>(items_flage) << endl;
+
+    items_flage |= opt0;
+    cout << "Item0 obtained " << bitset<8>(items_flage) << endl;
+
+    items_flage |= opt3;
+    cout << "Item3 obtained " << bitset<8>(items_flage) << endl;
+
+    items_flage &= ~opt3;
+    cout << "Item3 lost " << bitset<8>(items_flage) << endl;
+
+    if (items_flage & opt1) { cout << "Has item1" << endl; }\
+    else { cout << "Not hace item1" << endl; }
+
+    if (items_flage & opt0) { cout << "Has item0" << endl; }
+
+    items_flage |= (opt2 | opt3);
+    cout << bitset<8>(opt2 | opt3) << endl;
+    cout << "Item2, 3 obtained " << bitset<8>(items_flage) << endl;
+
+    if ((items_flage & opt2) && !(items_flage & opt1)) // opt2 갖고 있고 opt1 갖고 있지 않을 때
+    {
+        //items_flage ^= opt2; // 1 1 이므로 0.
+        //items_flage ^= opt1; // 0 1 이므로 1.
+        items_flage ^= (opt1 | opt2);
+    }
+    cout << bitset<8>(items_flage) << endl;
+
+    const unsigned int red_mask = 0xFF0000;
+    const unsigned int green_mask = 0x00FF00;
+    const unsigned int blue_mask = 0x0000FF;
+
+    cout << std::bitset<32>(red_mask) << endl;
+    cout << std::bitset<32>(green_mask) << endl;
+    cout << std::bitset<32>(blue_mask) << endl;
+
+
+    unsigned int pixel_color = 0xDAA520;
+
+    cout << std::bitset<32>(pixel_color) << endl;
+
+    //unsigned char green = pixel_color & green_mask; // 2번째 칸이라서 못 받아옴
+    unsigned char green = (pixel_color & green_mask) >> 8;
+    unsigned char red = (pixel_color & red_mask) >> 16;
+    unsigned char blue = pixel_color & blue_mask;
+
+    cout << "red " << bitset<8>(red) << " " << int(red) << endl;
+    cout << "green " << bitset<8>(green) << " " << int(green) << endl;
+    cout << "blue " << bitset<8>(blue) << " " << int(blue) << endl;
+
+    return 0;
+}
+```
 ## 🔥 헷갈린 것들 / 질문
-- <br><br>`cout << x % 2 == 0 ? "even" : "odd" << endl; // 안되는 이유는?`
+<br>`cout << x % 2 == 0 ? "even" : "odd" << endl; // 안되는 이유는?`
 	(cout \<\< (x % 2 == 0)) ? "even" : ("odd" \<\< endl); 이렇게 해석해 버림
 	<br>비트 이동(Shift) 연산은 비트들을 말 그대로 **한쪽 방향으로 밀어내는 연산.<br>**넘어가 버리면 사라짐.
+xor은 다르면 1 같으면 0
+    unsigned int pixel_color = 0xDAA520;<br><br>    cout \<\< std::bitset\<32\>(pixel_color) \<\< endl;<br><br>    //unsigned char green = pixel_color & green_mask; // 2번째 칸이라서 못 받아옴<br>    unsigned char green = (pixel_color & green_mask) \>\> 8;<br>    unsigned char red = (pixel_color & red_mask) \>\> 16;<br>    unsigned char blue = pixel_color & blue_mask;<br>마스크 하고 밀어줘야지 칸에 제대로 들어옴.
 ## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
+- [x] 강의 완주
+- [x] 코드 직접 따라 침
+- [x] 복습 1회
