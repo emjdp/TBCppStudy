@@ -1,12 +1,15 @@
 ---
 강의 수: 10
-상태: 진행 중
+상태: 완료
 섹션 번호: 5
 섹션명: 섹션 5. 변수 범위와 더 다양한 변수들
-완료일: null
-완료한 강의 수: 3
+완료일:
+  end: null
+  start: 2026-07-26
+  time_zone: null
+완료한 강의 수: 10
 중요도: ⭐ 중요
-진도율: 30
+진도율: 100
 총 시간: 3시간 9분
 ---
 
@@ -94,9 +97,116 @@ namespace work3::work33::work333
 }
 
 ```
+```cpp
+#include <iostream>
+
+auto add(int x, int y)
+{
+    return x + y;
+}
+
+//auto add(double x, double y)
+//{
+//    return x + y;
+//}
+
+// template 으로 아무거나 받아오는 걸 만들 수 있음.
+
+int main()
+{
+    using namespace std;
+
+    auto a = 123;
+    auto d = 123.0;
+    auto c = 1 + 2.0;
+    auto result = add(1, 2);
+
+    return 0;
+}
+```
+```cpp
+#include <iostream>
+#include <typeinfo>
+
+enum Color // Enumeration 열거
+{
+    COLOR_BLACK = -2,
+    COLOR_RED,
+    COLOR_BLUE,
+    COLOR_GREEN,
+    COLOR_SKYBLUE,
+    //BLUE는 겹쳐서 안됨.
+};
+
+enum Feeling
+{
+    HAPPY,
+    JOY,
+    TIRED,
+    BLUE
+};
+
+int main()
+{
+    using namespace std;
+
+    Color my_color = COLOR_BLACK;
+    cout << my_color << " " << COLOR_BLACK << endl;
+    Color paint = COLOR_BLACK;
+    Color house(COLOR_BLUE);
+    Color appe{ COLOR_RED };
+
+    int color_id = COLOR_GREEN;
+    cout << color_id << endl;
+
+    int in_number;
+    cin >> in_number;
+
+    if (in_number == static_cast<Color>(0)) // 열거형은 정수와 비교될 때 자동으로 정수형으로 암시적 형변환 되므로, 사실상 in_number == 0 과 똑같다.
+        my_color = static_cast<Color>(0);
+
+
+
+```
+```cpp
+    enum class Color1
+    {
+        BLACK,
+        RED,
+        BLUE,
+    };
+
+    enum class Fruit1
+    {
+        BANANA,
+        APPLE,
+    };
+
+    Color1 color1 = Color1::RED;
+    Fruit1 fruit1 = Fruit1::APPLE; // namespace로 묶어주는거랑 비슷한듯
+
+    // if (color1 == fruit1) // 불가능
+    if (static_cast<int>(color1) == static_cast<int>(fruit1)) // 테스트용. 실제로 쓸일은 없음.
+        cout << "Color is fruit ? " << endl;
+```
 ## 🔥 헷갈린 것들 / 질문
 -
+```plain text
+struct Employee // 2 + 4 + 8 = 14
+{
+    short   id; // 2 byte
+    int     age; // 4 byte
+    double  wage; // 8 byte
+};
+```
+```plain text
+    Employee emp1;
+    cout << sizeof(Employee) << endl;
+```
+했더니 14가 나옴. ?!?!
+**cpu는 데이터를 1 byte 단위로 읽는게 아니라 4 byte나 8 byte 난위로 묶어서 읽음. 만약에 패딩(빈공간 끼워 넣기) 없이 4byte int 변수가 4배수 아닌 곳에 걸쳐 있다면  CPU는 2번 접근 해서 데이터를 가져와 조합해야 함.**
+**공간의 효율보다 시간의 효율을 우선 시 해서 이런짓을 하나봄 **
 ## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
+- [x] 강의 완주
+- [x] 코드 직접 따라 침
+- [x] 복습 1회
