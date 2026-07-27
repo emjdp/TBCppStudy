@@ -44,4 +44,5 @@
   <Project Path="Chapter5_9/Chapter5_9.vcxproj" Id="cb213419-9fc9-45d6-8722-0c6f84122e07" />
   <Project Path="Chapter6_1/Chapter6_1.vcxproj" Id="d75fa1b6-a77c-416e-a791-2b5a7554397e" />
   <Project Path="Chapter6_2/Chapter6_2.vcxproj" Id="1de32fdd-e618-48bd-8c10-1f597dff768f" />
+  <Project Path="Chapter6_3/Chapter6_3.vcxproj" Id="621c8138-fdf7-4793-86a4-f04e418a4413" />
 </Solution>
