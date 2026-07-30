@@ -4,9 +4,9 @@
 섹션 번호: 7
 섹션명: 섹션 7. 행렬, 문자열, 포인터, 참조
 완료일: null
-완료한 강의 수: 2
+완료한 강의 수: 6
 중요도: ⭐ 중요
-진도율: 9
+진도율: 27
 총 시간: 4시간 48분
 ---
 
@@ -36,10 +36,60 @@ int main()
 ```
 ## 💻 코드 스니펫
 ```cpp
-// 직접 따라 친 코드 중 기억할 것
+for (int i = 0; i < num_students; ++i)
+{
+    total_score += scores[i];
+    //if (max_score < scores[i]) max_score = scores[i];
+    max_score = (max_score < scores[i]) ? scores[i] : max_score;
+}
+```
+```cpp
+    int array[num_rows][num_coloums] = // row-major <-> column-major
+    {
+        {1,2,3,4,5}, //row 0
+        {6,7,8,9,10}, //row 1
+        {11,12,13,14,15} //row2
+    };
+
+
+    for (int row = 0; row < num_rows; ++row)
+    {
+        for (int col = 0; col < num_coloums; ++col)
+            //cout << array[row][col] << '\t';
+            cout << (int) & array[row][col] << '\t';
+
+        cout << endl;
+
+    }
+```
+```cpp
+    char myString[] = "string"; // 문자열 맨 마지막에 null character(\0)가 있어서 7글자
+
+    for (int i = 0; i < 7; ++i)
+    {
+        cout << (int)myString[i] << endl;
+    }
+    cout << sizeof(myString) / sizeof(myString)[0] << endl;
+
+    char uString[255];
+    //cin >> uString;
+    cin.getline(uString, 255);
+    //uString[4] = '\0'; // 4번 인덱스 부터 뒤로 생략
+    cout << uString << endl;
+
+    int ix = 0;
+    while (true)
+    {
+        if (uString[ix] == '\0') break;
+
+        cout << uString[ix] << " " << (int)myString[ix] << endl;
+        ++ix;
+    }
+
 ```
 ## 🔥 헷갈린 것들 / 질문
--
+- cout \<\< '\[' \<\< row \<\< '\]' \<\< '\[' \<\< col \<\< ' \]' \<\< '\\t';
+ ' \['는 공백(0x20)과 \](0x5D)라는 두 문자의 아스키 코드가 합쳐진 0x205D 라는 16진수 정수가 됨 <br>한참 찾았네.. 실수 주의.
 ## ✅ 복습 체크
 - [ ] 강의 완주
 - [ ] 코드 직접 따라 침
