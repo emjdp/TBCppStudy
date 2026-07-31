@@ -4,9 +4,9 @@
 섹션 번호: 7
 섹션명: 섹션 7. 행렬, 문자열, 포인터, 참조
 완료일: null
-완료한 강의 수: 6
+완료한 강의 수: 9
 중요도: ⭐ 중요
-진도율: 27
+진도율: 41
 총 시간: 4시간 48분
 ---
 
@@ -34,6 +34,75 @@ int main()
      return 0;
 }
 ```
+포인터는 왜 쓸까?
+	→ 1. array에서 첫 번째 주소랑 데이터 몇개가 있다 정도를 알려주면 효율적임
+	1. 변수를 자체로 여기저기서 쓸때 매번 변수 전체를 복사할 필요가 없어짐
+```cpp
+int main()
+{
+    int x = 5;
+    double d = 123.0;
+
+    int* ptr_x = &x, * ptr_y = &x;
+    double* ptr_d = &d;
+
+    cout << sizeof(x) << endl;  // 4
+    cout << sizeof(d) << endl;  // 8
+    cout << sizeof(&x) << " " << sizeof(ptr_x) << endl; // 8 8
+    cout << sizeof(&d) << " " << sizeof(ptr_d) << endl; // 8 8
+```
+집이 크다고 해서 주소가 길지는 않다.
+널 포인터(null pointer)
+```cpp
+    double *ptr = 0; // c-style
+    double* ptr = NULL; // c-style
+    double* ptr = nullptr; // mpdern c++
+    double* ptr{ nullptr }; // mpdern c++
+```
+```cpp
+if (ptr != nullptr)
+{
+    //do something useful
+    std::cout << *ptr << std::endl;
+}
+else
+{
+    //do nothing with ptr
+    std::cout << "NULL ptr, do nothing" << std::endl;
+}
+```
+```cpp
+std::nullptr_t nptr; //nullptr 값만 넣을 수 있음
+```
+---
+```cpp
+void printArray(int array[]) // int *array 같음
+{
+    cout << sizeof(array) << endl;
+    *array = 100; // 함수 밖에서도 바뀜
+}
+```
+```cpp
+int main()
+{
+
+    int array[5] = { 9,7,5,3,1 };
+
+    cout << array << endl;
+    cout << &array[0] << endl; // array 랑 같음. array는 사실상 포인터
+
+    int *ptr = array;
+    cout << "size : " << sizeof(ptr) << endl;
+    cout << ptr << endl;
+    cout << *ptr << endl;
+
+    printArray(array); // 20아니고 8나옴. 함수 안에서도 내부적으로는 포인터.
+    cout << *array << endl;
+
+    return 0;
+}
+```
+main 밖 함수에서 \*array를 수정하였기 때문에 메인의 array\[0\] 바뀜. 배열 시작점 메모리에 접근해서 변경.
 ## 💻 코드 스니펫
 ```cpp
 for (int i = 0; i < num_students; ++i)
