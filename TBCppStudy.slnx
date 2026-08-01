@@ -53,6 +53,8 @@
   <Project Path="Chapter6_8/Chapter6_8.vcxproj" Id="a7c16494-692e-4503-bf49-37163c33b0e1" />
   <Project Path="Chapter6_9/Chapter6_9.vcxproj" Id="18052e9a-9a70-45c9-a3e6-ca9840519c02" />
   <Project Path="Chapter7_1/Chapter7_1.vcxproj" Id="249003ce-b3de-4683-b9e1-52f0ab087e0f" />
+  <Project Path="Chapter7_10/Chapter7_10.vcxproj" Id="9defbed9-0167-4519-ad7d-c33bc6bb69b8" />
+  <Project Path="Chapter7_11/Chapter7_11.vcxproj" Id="d4b86be7-058e-4254-9f1d-a943686db701" />
   <Project Path="Chapter7_2/Chapter7_2.vcxproj" Id="5002bec0-91dd-456a-9c17-528b285af8ea" />
   <Project Path="Chapter7_3/Chapter7_3.vcxproj" Id="93bde84f-b3cb-484d-bb33-074eb54f988e" />
   <Project Path="Chapter7_4/Chapter7_4.vcxproj" Id="48c7b756-0ec9-4da4-bdd4-3c1b63d450d2" />
@@ -61,4 +63,5 @@
   <Project Path="Chapter7_7/Chapter7_7.vcxproj" Id="3b0d95c2-0563-4363-9a1d-4123154e5884" />
   <Project Path="Chapter7_7a/Chapter7_7a.vcxproj" Id="9fdded5c-f8f7-44bb-9856-118d59ce051b" />
   <Project Path="Chapter7_8/Chapter7_8.vcxproj" Id="ff0b2aa5-5d29-46b5-a99f-ae872f1cebed" />
+  <Project Path="Chapter7_9/Chapter7_9.vcxproj" Id="988f63c8-e4be-4ae2-b9bc-ae92d21b9352" />
 </Solution>
