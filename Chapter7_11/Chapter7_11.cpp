@@ -16,8 +16,15 @@ int main()
     
     int *ptr = new (std::nothrow) int{ 7 }; // 할당 실패 시 예외(bad_alloc)를 던지는 대신 nullptr을 반환
 
-    cout << ptr << endl;
-    cout << *ptr << endl;
+    if (ptr)
+    {
+        cout << ptr << endl;
+        cout << *ptr << endl;
+    }
+    else
+    {
+        cout << "Could not allocate memory" << endl;
+    }
 
     delete ptr; // 메모리 반납
     ptr = nullptr;
@@ -28,7 +35,14 @@ int main()
         cout << *ptr << endl;
     }
 
+    // memory leak
+    while (true)
+    {
+        int* ptr = new int;
+        cout << ptr << endl;
 
+        //delete ptr;
+    }
     return 0;
 }
 
