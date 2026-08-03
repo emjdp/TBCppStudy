@@ -42,6 +42,52 @@ int main()
         cout << endl;
     }
 
+
+    delete[] r1;
+    delete[] r2;
+    delete[] r3;
+    delete[] rows;
+    
+    // for문으로 하려면
+/*
+    int** matrix = new int* [row];
+
+    for (int r = 0; r < row; r++)
+        matrix[r] = new int[col];
+
+    for (int r = 0; r < row; ++r)
+        for (int c = 0; c < col; c++)
+            matrix[r][c] = s2da[r][c];
+
+    for (int r = 0; r < row; ++r)
+    {
+        for (int c = 0; c < col; c++)
+            cout << matrix[r][c] << " ";
+        cout << endl;
+    }
+
+    for (int r = 0; r < row; r++)
+        delete[] matrix[r];
+
+    delete[] matrix;
+    */
+
+    // 이중포인터 안쓰는 경우
+    int* matrix = new int[row * col];
+
+    for (int r = 0; r < row; ++r)
+        for (int c = 0; c < col; c++)
+            matrix[c + col*r] = s2da[r][c];
+
+    for (int r = 0; r < row; ++r)
+    {
+        for (int c = 0; c < col; c++)
+            cout << matrix[c + col * r] << " ";
+        cout << endl;
+    }
+
+    delete[] matrix;
+
     return 0;
 }
 

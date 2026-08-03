@@ -1,12 +1,15 @@
 ---
 강의 수: 22
-상태: 진행 중
+상태: 완료
 섹션 번호: 7
 섹션명: 섹션 7. 행렬, 문자열, 포인터, 참조
-완료일: null
-완료한 강의 수: 18
+완료일:
+  end: null
+  start: 2026-08-03
+  time_zone: null
+완료한 강의 수: 22
 중요도: ⭐ 중요
-진도율: 82
+진도율: 100
 총 시간: 4시간 48분
 ---
 
@@ -272,7 +275,93 @@ cout << *static_cast<float*>(ptr) << endl;
         cout << endl;
     }
 ```
-rows\[1\]\[2\] 가 바로 8로 됨. <br>→
+rows\[1\]\[2\] 가 바로 8로 됨. <br>→  대괄호 하나를 벗길 때마다 `*(포인터 + 인덱스)`로 바뀜
+```cpp
+p[i] == *(p + i)
+```
+```cpp
+int **rows = new int*[3] { r1, r2, r3 };
+```
+메모리 구조는 대략:
+```plain text
+rows
+ ↓
+┌────┬────┬────┐
+│ r1 │ r2 │ r3 │   각 원소의 자료형은 int*
+└────┴────┴────┘
+       ↓
+      {6, 7, 8, 9, 10}
+```
+따라서:
+```plain text
+rows[1]
+== *(rows + 1)
+== r2
+```
+자료형의 변화를 따라가면 더 명확
+```plain text
+rows         // int**
+rows + 1     // int** : 두 번째 int* 칸의 주소
+*(rows + 1)  // int*  : 그 칸에 저장된 r2
+```
+2차원 첨자도 같은 규칙을 두 번 적용
+```plain text
+rows[1][2]
+== *(rows[1] + 2)
+== *(*(rows + 1) + 2)
+== 8
+```
+```cpp
+#include <iostream>
+#include <array>
+#include <algorithm>
+
+...
+
+array<int, 5> my_arr = { 1,21,3,40,5 };
+//cout << my_arr.at(10) << endl; // 미리 해보고 문제 생기면 예외처리.
+
+for (auto& element : my_arr)
+	cout << element << " ";
+cout << endl;
+
+std::sort(my_arr.begin(), my_arr.end());
+
+for (auto& element : my_arr)
+	cout << element << " ";
+cout << endl;
+
+std::sort(my_arr.rbegin(), my_arr.rend()); // 역순 정렬
+```
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    std::vector<int> array2 = { 1,2,3,4,5 };
+    cout << array2.size() << endl;
+
+    std::vector<int> array4 { 1,2,3, };
+    cout << array4.size() << endl;
+
+
+    std::vector<int> arr = { 1,2,3,4,5 };
+
+    for (auto &itr : arr)
+        cout << itr << " ";
+    cout << endl;
+
+		cout << arr.size() << endl;
+    cout << arr[1] << endl;
+    cout << arr.at(1) << endl;
+
+    return 0;
+}
+```
+int \*my_arr = new int\[5\]; 랑 다르게 delete\[\] my_arr; 처럼 지워 줄 필요 없음.<br>벡터는 자동으로 사라져서 메모리 누수의 위험 없음. 메모리 관리 편함<br>동적 할당 쉬움. resize , size 등등 이미 구현되어 있음.
 ## 💻 코드 스니펫
 ```cpp
 for (int i = 0; i < num_students; ++i)
@@ -366,8 +455,46 @@ int main()
     Person& ref2 = *ptr;
     ref2.age = 45;
 ```
-포인터나 레퍼런스 왜 쓰는걸까?<br>→ 메모리와 성능 효율성. 함수에 인자 전달하거나 복사할때 값을 복사 하지 않고도 할 수 있음.<br>원본 데이터 수정도 가능함. 등등
+- 포인터나 레퍼런스 왜 쓰는걸까?<br>→ 메모리와 성능 효율성. 함수에 인자 전달하거나 복사할때 값을 복사 하지 않고도 할 수 있음.<br>원본 데이터 수정도 가능함. 등등
+- 스택과 힙의 차이는 무엇일까?<br>→
+<table>
+<tr>
+<td>**구분**</td>
+<td>**스택 (Stack)**</td>
+<td>**힙 (Heap)**</td>
+</tr>
+<tr>
+<td>**관리 주체**</td>
+<td>컴파일러 / OS (자동)</td>
+<td>프로그래머 (수동 또는 스마트 포인터)</td>
+</tr>
+<tr>
+<td>**할당 시점**</td>
+<td>컴파일 타임 \~ 함수 호출 시</td>
+<td>런타임 (동적 할당)</td>
+</tr>
+<tr>
+<td>**할당/해제 속도**</td>
+<td>매우 빠름</td>
+<td>상대적으로 느림</td>
+</tr>
+<tr>
+<td>**메모리 크기**</td>
+<td>작음 (보통 몇 MB 수준)</td>
+<td>큼 (시스템 사용 가능한 RAM 크기)</td>
+</tr>
+<tr>
+<td>**구조**</td>
+<td>LIFO (연속적 메모리)(후입선출)</td>
+<td>비연속적 (파편화 발생 가능)</td>
+</tr>
+<tr>
+<td>**주요 에러**</td>
+<td>Stack Overflow</td>
+<td>Memory Leak, Double Free 등</td>
+</tr>
+</table>
 ## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
+- [x] 강의 완주
+- [x] 코드 직접 따라 침
+- [x] 복습 1회
