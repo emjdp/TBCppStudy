@@ -4,9 +4,9 @@
 섹션 번호: 8
 섹션명: 섹션 8. 함수
 완료일: null
-완료한 강의 수: 3
+완료한 강의 수: 6
 중요도: ⭐ 중요
-진도율: 19
+진도율: 38
 총 시간: 3시간 11분
 ---
 
@@ -65,6 +65,109 @@ int *&ptr; 이건 뭘까?<br>→ (int\*) &ptr 으로 보면 됨<br>아니면<br>
 		<br>
 	</column>
 </columns>
+```cpp
+#include <iostream>
+using namespace std;
+
+typedef int* pint;
+void foo(pint ptr) //int* ptr // 값에 의한 전달이랑 같음
+{
+    cout << *ptr << " " << ptr << " " << &ptr << endl;
+}
+
+int main()
+{
+    int value = 5;
+
+    cout << value << " " << &value << endl;
+
+    int* ptr = &value;
+
+    cout << &ptr << endl;
+    foo(ptr);
+    foo(&value);
+
+    return 0;
+}
+```
+내부적으로는 값에 의한 전달
+```cpp
+#include <iostream>
+using namespace std;
+
+void foo(double degrees, double *sin_out, double *cos_out)
+{
+    *sin_out = 1.0;
+    *cos_out = 2.0;
+}
+
+int main()
+{
+    double degrees = 30;
+    double sin, cos;
+
+    foo(degrees, &sin, &cos);
+
+    cout << sin << " " << cos << endl;
+
+    return 0;
+}
+```
+### **다양한 반환 값들**
+### 함수 반환 방식 정리
+<table header-row="true">
+<tr>
+<td>반환 방식</td>
+<td>예시</td>
+<td>의미 / 용도</td>
+<td>주의점 및 현대 C++ 권장사항</td>
+</tr>
+<tr>
+<td>값 반환</td>
+<td>`T func()`</td>
+<td>새로운 결과값을 호출자에게 전달</td>
+<td>가장 기본적인 선택. RVO와 이동 연산 덕분에 큰 객체도 보통 효율적</td>
+</tr>
+<tr>
+<td>참조 반환</td>
+<td>`T& func()`</td>
+<td>기존 객체를 직접 수정하거나 복사 없이 접근</td>
+<td>반환 대상이 함수 종료 후에도 살아 있어야 함. 지역 변수의 참조 반환 금지</td>
+</tr>
+<tr>
+<td>주소 반환</td>
+<td>`T* func()`</td>
+<td>객체의 위치를 전달하며 `nullptr` 표현 가능</td>
+<td>객체 수명과 소유권이 불분명할 수 있음. 소유권 전달에는 스마트 포인터 사용</td>
+</tr>
+<tr>
+<td>구조체 반환</td>
+<td>`Result func()`</td>
+<td>여러 결과를 의미 있는 이름으로 묶어서 반환</td>
+<td>결과의 의미가 명확해 여러 값을 반환할 때 가장 읽기 좋은 방식</td>
+</tr>
+<tr>
+<td>튜플 반환</td>
+<td>`std::tuple<T1, T2> func()`</td>
+<td>여러 값을 간단히 묶어서 반환</td>
+<td>각 값의 이름이 없어 의미가 흐려질 수 있음. 구조적 바인딩과 함께 사용</td>
+</tr>
+<tr>
+<td>선택적 값 반환</td>
+<td>`std::optional<T> func()`</td>
+<td>결과가 있을 수도, 없을 수도 있음을 표현</td>
+<td>실패를 `nullptr`이나 특수한 값으로 표현하는 것보다 명확함</td>
+</tr>
+<tr>
+<td>스마트 포인터 반환</td>
+<td>`std::unique_ptr<T> func()`</td>
+<td>생성한 객체의 소유권을 호출자에게 전달</td>
+<td>직접 `new`한 주소를 반환하는 방식보다 안전하고 소유권이 명확함</td>
+</tr>
+</table>
+> 기본은 **값 반환**, 여러 결과는 **구조체**, 기존 객체를 가리킬 때는 **수명을 보장한 참조/포인터**, 소유권 전달은 **스마트 포인터**를 사용
+### inline
+과거에는 함수 호출 비용을 줄이려고 사용했으나 현대 컴파일러는 알아서 인라인 여부를 판단한다. 현재는 주로 헤더에 함수나 변수를 정의할 때 중복 정의를 허용하는 ODR 관련 기능으로 사용
 ## 💻 코드 스니펫
 ```cpp
 // 직접 따라 친 코드 중 기억할 것
