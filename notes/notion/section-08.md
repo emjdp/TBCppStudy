@@ -4,9 +4,9 @@
 섹션 번호: 8
 섹션명: 섹션 8. 함수
 완료일: null
-완료한 강의 수: 6
+완료한 강의 수: 8
 중요도: ⭐ 중요
-진도율: 38
+진도율: 50
 총 시간: 3시간 11분
 ---
 
@@ -168,6 +168,59 @@ int main()
 > 기본은 **값 반환**, 여러 결과는 **구조체**, 기존 객체를 가리킬 때는 **수명을 보장한 참조/포인터**, 소유권 전달은 **스마트 포인터**를 사용
 ### inline
 과거에는 함수 호출 비용을 줄이려고 사용했으나 현대 컴파일러는 알아서 인라인 여부를 판단한다. 현재는 주로 헤더에 함수나 변수를 정의할 때 중복 정의를 허용하는 ODR 관련 기능으로 사용
+## 함수 오버로딩
+```cpp
+int add(int x, int y)
+{
+    return x + y;
+}
+
+int add(double x, double y)
+{
+    return x + y;
+}
+```
+함수명이 같아도 파라미터(매개변수)가 다르면 다른 함수
+## 매개변수의 기본값
+
+```cpp
+void print(int x = 10, int y = 20, int z = 30); // in header
+
+void print(int x, int y, int z)
+{
+    cout << x << " " << y << " " << z << endl;
+}
+```
+기본값 설정은 위아래에서 하나만
+```cpp
+void print1(std::string str) {}
+void print1(char ch = ' ') {}
+
+...
+
+print();
+```
+가능. char로 받은거고 기본값 ‘ ‘ 들어감.
+### 함수 포인터
+```cpp
+int func(int x)
+{
+    return 5;
+}
+
+int goo(int x)
+{
+    return 10;
+}
+
+int main()
+{
+    int(*fcnptr)(int) = func;
+
+    cout << fcnptr(1) << endl;
+
+    fcnptr = goo;
+```
 ## 💻 코드 스니펫
 ```cpp
 // 직접 따라 친 코드 중 기억할 것
