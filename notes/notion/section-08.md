@@ -4,9 +4,9 @@
 섹션 번호: 8
 섹션명: 섹션 8. 함수
 완료일: null
-완료한 강의 수: 8
+완료한 강의 수: 10
 중요도: ⭐ 중요
-진도율: 50
+진도율: 63
 총 시간: 3시간 11분
 ---
 
@@ -202,6 +202,7 @@ print();
 ```
 가능. char로 받은거고 기본값 ‘ ‘ 들어감.
 ### 함수 포인터
+나중에 호출할 함수를 변수처럼 저장해서 사용
 ```cpp
 int func(int x)
 {
@@ -220,6 +221,104 @@ int main()
     cout << fcnptr(1) << endl;
 
     fcnptr = goo;
+```
+```cpp
+void printNumbers(const array<int, 10>& my_array, bool print_even)
+{
+    for (auto element : my_array)
+    {
+        if (print_even && element % 2 == 0) cout << element;
+        if (!print_even && element % 2 == 1) cout << element;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    std::array<int, 10> my_array{ 0,1,2,3,4,5,6,7,8,9 };
+
+    printNumbers(my_array, true);
+    printNumbers(my_array, false);
+    return 0;
+}
+
+```
+위에꺼에 함수 포인터를 적용하면
+```cpp
+bool isEven(const int& number)
+{
+    if (number % 2 == 0) return true;
+    else return false;
+}
+
+bool isOdd(const int& number)
+{
+    if (number % 2 != 0) return true;
+    else return false;
+}
+
+void printNumbers(const array<int, 10>& my_array, bool (*check_fcn)(const int&))
+{
+    for (auto element : my_array)
+    {
+        if (check_fcn(element) == true) cout << element;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    std::array<int, 10> my_array{ 0,1,2,3,4,5,6,7,8,9 };
+
+    printNumbers(my_array, isEven);
+    printNumbers(my_array, isOdd);
+    return 0;
+}
+```
+<br><br>`bool (check_fcn)(const int&)` 같은게 반복 된다면<br>`typedef bool(check_fcn_t)(const int&);` check_fcn_t check_fcn = isEven 이렇게 단축 가능
+다음과 같은 방법도 존재
+```cpp
+#include <iostream>
+#include <array>
+#include <functional>
+
+using namespace std;
+
+bool isEven(const int& number)
+{
+    if (number % 2 == 0) return true;
+    else return false;
+}
+
+bool isOdd(const int& number)
+{
+    if (number % 2 != 0) return true;
+    else return false;
+}
+
+void printNumbers(const array<int, 10>& my_array, std::function<bool(const int&)> check_fcn)
+{
+    for (auto element : my_array)
+    {
+        if (check_fcn(element) == true) cout << element;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    std::array<int, 10> my_array{ 0,1,2,3,4,5,6,7,8,9 };
+    std::function<bool(const int&)> fcnptr = isEven;
+
+    printNumbers(my_array, fcnptr);
+    fcnptr = isOdd;
+
+    printNumbers(my_array, fcnptr);
+
+
+
+    return 0;
+}
 ```
 ## 💻 코드 스니펫
 ```cpp
