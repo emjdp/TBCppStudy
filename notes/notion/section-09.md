@@ -4,9 +4,9 @@
 섹션 번호: 9
 섹션명: 섹션 9. 객체지향의 기초
 완료일: null
-완료한 강의 수: 5
+완료한 강의 수: 6
 중요도: ⭐⭐ OOP 핵심
-진도율: 33
+진도율: 40
 총 시간: 3시간 16분
 ---
 
@@ -135,6 +135,90 @@ int main()
 }
 ```
 ## 위임 생성자
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student
+{
+private:
+    int m_id;
+    string m_name;
+public:
+    // 이름만 받으면 id를 0으로 지정해서 아래 생성자에게 위임
+    Student(const string& name_in)
+        : Student(0,name_in)
+    {}
+
+    // 실제 멤버 초기화를 담당하는 생성자
+    Student(int id_in, const string& name_in)
+        : m_id(id_in), m_name(name_in)
+    {}
+
+    void print()
+    {
+        cout << m_id << " " << m_name << endl;
+    }
+};
+
+int main()
+{
+    Student st1(0, "Jack Jack");
+    Student st2("John");
+
+    st1.print();
+    st2.print();
+
+    return 0;
+}
+```
+## 소멸자
+```cpp
+class Simple
+{
+private:
+    int m_id;
+
+public:
+    Simple(const int & id_in)
+        : m_id(id_in)
+    {
+        cout << "Constructor " << m_id << endl;
+    }
+
+    ~Simple()
+    {
+        cout << "Destructor " << m_id << endl;
+    }
+};
+```
+```cpp
+class InArray
+{
+private:
+    int* m_arr = nullptr;
+    int m_lenght = 0;
+
+public:
+    InArray(const int lenght_in)
+    {
+        m_lenght = lenght_in;
+        m_arr = new int{ m_lenght };
+
+        cout << "Constructor " << endl;
+    }
+
+    ~InArray()
+    {
+        if(m_arr != nullptr)
+            delete[] m_arr;
+    }
+
+    int size() { return m_lenght; }
+
+};
+```
 ## 💻 코드 스니펫
 ```cpp
 // 직접 따라 친 코드 중 기억할 것
