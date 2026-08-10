@@ -31,8 +31,8 @@ Notion에서 작성한 학습 노트를 읽기 전용 로컬 도구로 Markdown 
 
 ```text
 TBCppStudy/
-├─ Chapter1_1/       # C++ 시작
-├─ Chapter2_1~10/    # C++ 기본 사용법 실습
+├─ Chapter01_01/       # C++ 시작
+├─ Chapter02_01~10/    # C++ 기본 사용법 실습
 ├─ notes/notion/     # Notion에서 백업한 학습 노트
 ├─ scripts/notion/   # 읽기 전용 로컬 내보내기
 ├─ study.ps1         # 노트 내보내기·커밋·푸시 자동화
