@@ -3,6 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="Chapter10_1/Chapter10_1.vcxproj" Id="6ffc4545-22bc-471b-aed0-489eba6d6a73" />
   <Project Path="Chapter1_1/Chapter1_1.vcxproj" Id="2cdc9ef2-0c95-405d-a112-2d2e49abd62c" />
   <Project Path="Chapter2_1/Chapter2_1.vcxproj" Id="00394ad7-b4b9-4514-ad26-ea3505445ea2" />
   <Project Path="Chapter2_10/Chapter2_10.vcxproj" Id="b960e2c3-1646-4bff-aa3e-fb36c766d773" />
@@ -91,10 +92,18 @@
   <Project Path="Chapter8_8/Chapter8_8.vcxproj" Id="e92d85d9-79cd-4dae-aaac-f258ebdcf312" />
   <Project Path="Chapter8_9/Chapter8_9.vcxproj" Id="d1e0cc1c-e403-4d1b-b932-371119106c28" />
   <Project Path="Chapter9_1/Chapter9_1.vcxproj" Id="795d3a55-1b35-4267-a5bd-f957d0234b4c" />
+  <Project Path="Chapter9_10/Chapter9_10.vcxproj" Id="cdcd4289-285d-457f-8fa2-8d006649ebc7" />
+  <Project Path="Chapter9_11/Chapter9_11.vcxproj" Id="4d081a1c-447c-4a21-b2c0-cb1d14e24edf" />
+  <Project Path="Chapter9_12/Chapter9_12.vcxproj" Id="f806fd68-917f-46fa-b217-bf1bf285c35f" />
+  <Project Path="Chapter9_13/Chapter9_13.vcxproj" Id="96a55a25-b74f-44cb-995b-b39a6894c3a2" />
+  <Project Path="Chapter9_14/Chapter9_14.vcxproj" Id="a4ea30a7-ab35-42c9-9305-37bb3b7a2f34" />
+  <Project Path="Chapter9_15/Chapter9_15.vcxproj" Id="df3359ce-5f7b-45aa-aa29-113cb23e89a9" />
   <Project Path="Chapter9_2/Chapter9_2.vcxproj" Id="e691d7e8-d077-4dc0-b12a-381ecc3d2649" />
   <Project Path="Chapter9_3/Chapter9_3.vcxproj" Id="b44f67d8-5574-4fd3-a7c7-4d88dd0a21aa" />
   <Project Path="Chapter9_4/Chapter9_4.vcxproj" Id="00235584-02d2-4bc6-8851-b36d921f0632" />
   <Project Path="Chapter9_5/Chapter9_5.vcxproj" Id="9af09a8a-ffc1-4697-9f3e-8e7fab6c466b" />
   <Project Path="Chapter9_6/Chapter9_6.vcxproj" Id="245d5c62-04e4-4513-aecc-1fab5d369317" />
   <Project Path="Chapter9_7/Chapter9_7.vcxproj" Id="4e5089fc-4460-4ca2-86a1-51dc2a8d076a" />
+  <Project Path="Chapter9_8/Chapter9_8.vcxproj" Id="d4ce4f1c-92d7-444d-a1ab-6b5b068e2f5d" />
+  <Project Path="Chapter9_9/Chapter9_9.vcxproj" Id="711a5b6e-30eb-4b1c-b8be-025966c5c148" />
 </Solution>
