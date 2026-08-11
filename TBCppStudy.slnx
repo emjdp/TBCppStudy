@@ -106,4 +106,8 @@
   <Project Path="Chapter09_14/Chapter09_14.vcxproj" Id="a4ea30a7-ab35-42c9-9305-37bb3b7a2f34" />
   <Project Path="Chapter09_15/Chapter09_15.vcxproj" Id="df3359ce-5f7b-45aa-aa29-113cb23e89a9" />
   <Project Path="Chapter10_01/Chapter10_01.vcxproj" Id="6ffc4545-22bc-471b-aed0-489eba6d6a73" />
+  <Project Path="Chapter10_02/Chapter10_02.vcxproj" Id="d40ab249-32f9-4cf4-848a-6525c2f1f3e6" />
+  <Project Path="Chapter10_03/Chapter10_03.vcxproj" Id="f7f313ee-b068-4d9f-901f-2904772c2e1b" />
+  <Project Path="Chapter10_04/Chapter10_04.vcxproj" Id="5bb9d849-18ac-446d-8178-09a7e089b567" />
+  <Project Path="Chapter10_05/Chapter10_05.vcxproj" Id="9fc06da9-c2ee-4211-867a-1327e19cdeaa" />
 </Solution>
