@@ -110,4 +110,12 @@
   <Project Path="Chapter10_03/Chapter10_03.vcxproj" Id="f7f313ee-b068-4d9f-901f-2904772c2e1b" />
   <Project Path="Chapter10_04/Chapter10_04.vcxproj" Id="5bb9d849-18ac-446d-8178-09a7e089b567" />
   <Project Path="Chapter10_05/Chapter10_05.vcxproj" Id="9fc06da9-c2ee-4211-867a-1327e19cdeaa" />
+  <Project Path="Chapter10_06/Chapter10_06.vcxproj" Id="689d9fc9-d465-4624-aede-6b77ad33cda3" />
+  <Project Path="Chapter10_07/Chapter10_07.vcxproj" Id="1427760e-ee91-450e-b316-595c6ae180ee" />
+  <Project Path="Chapter10_08/Chapter10_08.vcxproj" Id="afbf845e-77c5-42bf-b51d-1df45182894e" />
+  <Project Path="Chapter10_09/Chapter10_09.vcxproj" Id="d2d48f10-cfb7-418d-8e13-685594d2e834" />
+  <Project Path="Chapter10_10/Chapter10_10.vcxproj" Id="aacfde10-4bc5-437b-b1fb-227fb96ded68" />
+  <Project Path="Chapter10_11/Chapter10_11.vcxproj" Id="18d8aa98-4c77-4920-9254-62e5e6167a4c" />
+  <Project Path="Chapter10_12/Chapter10_12.vcxproj" Id="e5ffdaa3-a747-4614-828a-9499e7caa936" />
+  <Project Path="Chapter11_01/Chapter11_01.vcxproj" Id="daddd73c-e1d7-4ef7-9969-5f298c39fa2a" />
 </Solution>
