@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5f5ffc92-792a-427d-b18f-eb82409a64d3}</ProjectGuid>
-    <RootNamespace>Chapter1008</RootNamespace>
+    <ProjectGuid>{61d314e5-1402-4197-9bc3-c5563f82c411}</ProjectGuid>
+    <RootNamespace>Chapter1102</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,11 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Chapter10+08.cpp" />
+    <ClCompile Include="Chapter11_02.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Position.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

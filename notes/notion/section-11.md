@@ -4,9 +4,9 @@
 섹션 번호: 11
 섹션명: 섹션 11. 객체들 간의 관계에 대해
 완료일: null
-완료한 강의 수: 1
+완료한 강의 수: 2
 중요도: ⭐⭐ OOP 핵심
-진도율: 17
+진도율: 33
 총 시간: 1시간 20분
 ---
 
@@ -82,6 +82,33 @@
 <td>단방향</td>
 </tr>
 </table>
+### 구성 관계 — Monster와 Position2D
+Position2D가 Monster의 일부
+Chapter11_02.cpp<br>└─ #include "Monster.h"<br>└─ #include "Position.h"
+#### Monster.h
+```plain text
+#pragma once
+
+#include <string>
+#include "Position.h"
+
+class Monster
+{
+private:
+    std::string m_name;
+    Position2D m_location;  // Monster를 구성하는 위치 객체
+
+public:
+    Monster(const std::string name_in, const Position2D& pos_in)
+        : m_name(name_in), m_location(pos_in)
+    {}
+
+    void moveTo(const Position2D& pos_target)
+    {
+        m_location.set(pos_target);
+    }
+};
+```
 ## 💻 코드 스니펫
 ```cpp
 // 직접 따라 친 코드 중 기억할 것
