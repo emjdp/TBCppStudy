@@ -1,12 +1,15 @@
 ---
 강의 수: 6
-상태: 진행 중
+상태: 복습 필요
 섹션 번호: 11
 섹션명: 섹션 11. 객체들 간의 관계에 대해
-완료일: null
-완료한 강의 수: 2
+완료일:
+  end: null
+  start: 2026-08-14
+  time_zone: null
+완료한 강의 수: 6
 중요도: ⭐⭐ OOP 핵심
-진도율: 33
+진도율: 100
 총 시간: 1시간 20분
 ---
 
@@ -82,7 +85,7 @@
 <td>단방향</td>
 </tr>
 </table>
-### 구성 관계 — Monster와 Position2D
+### 구성 관계 - Monster와 Position2D
 Position2D가 Monster의 일부
 Chapter11_02.cpp<br>└─ #include "Monster.h"<br>└─ #include "Position.h"
 #### Monster.h
@@ -109,6 +112,38 @@ public:
     }
 };
 ```
+### 집합 관계 - Lecture와 Teacher·Student
+`Teacher`와 `Student`는 `Lecture`와 독립적으로 존재하며, 하나의 객체를 여러 강의가 공유할 수 있다. `Lecture`는 객체를 소유하지 않고 주소만 보관한다.
+```plain text
+// 값으로 보관 → 포인터로 참조
+Teacher* teacher;
+std::vector<Student*> students;
+
+// 외부에서 생성한 객체를 등록
+lec1.assignTeacher(&teacher1);
+lec1.registerStudent(&std1);
+lec2.registerStudent(&std1);
+```
+같은 `std1`을 두 강의에 등록했기 때문에 `lec2.study()`로 학생의 지능을 올리면 `lec1`에서도 변경된 값이 보인다. 또한 `Lecture`가 객체를 소유하지 않으므로 소멸자에서 `Teacher`와 `Student`를 삭제하지 않는다.
+### 의존 관계 — Worker와 Timer
+```plain text
+Chapter11_05
+├─ Chapter11_05.cpp
+│  └─ #include "Worker.h"
+├─ Worker.h
+│  └─ Worker 클래스와 doSomething() 선언
+├─ Worker.cpp
+│  ├─ #include "Worker.h"
+│  └─ #include "Timer.h"
+└─ Timer.h
+   └─ #include <iostream>, <chrono> 등
+```
+#### 의존 방향
+```plain text
+Chapter11_05.cpp → Worker
+Worker.cpp       → Timer
+Worker.h         ✕ Timer
+```
 ## 💻 코드 스니펫
 ```cpp
 // 직접 따라 친 코드 중 기억할 것
@@ -116,7 +151,7 @@ public:
 ## 🔥 헷갈린 것들 / 질문
 -
 ## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
+- [x] 강의 완주
+- [x] 코드 직접 따라 침
 - [ ] 복습 1회
 - [ ] 복습 2회 (OOP 핵심 섹션은 2회 복습)
