@@ -123,4 +123,6 @@
   <Project Path="Chapter11_04/Chapter11_04.vcxproj" Id="f8586e8c-51e3-41b8-9896-6ae789a8ce71" />
   <Project Path="Chapter11_05/Chapter11_05.vcxproj" Id="c5dc76f4-a9ba-4c9c-b0ae-24a399b00393" />
   <Project Path="Chapter11_06/Chapter11_06.vcxproj" Id="3687c743-7c2d-45d1-9248-b6810106745c" />
+  <Project Path="Chapter12_01/Chapter12_01.vcxproj" Id="3ee9c946-e056-4673-baff-b9a65915e7a6" />
+  <Project Path="Chapter12_02/Chapter12_02.vcxproj" Id="4da701d6-3b6c-483e-82ea-8295935a5a45" />
 </Solution>

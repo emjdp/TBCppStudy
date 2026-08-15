@@ -1,6 +1,6 @@
 ---
 강의 수: 6
-상태: 복습 필요
+상태: 완료
 섹션 번호: 11
 섹션명: 섹션 11. 객체들 간의 관계에 대해
 완료일:
@@ -12,8 +12,6 @@
 진도율: 100
 총 시간: 1시간 20분
 ---
-
-# 섹션 11. 객체들 간의 관계에 대해
 
 ## 📝 핵심 개념 정리
 <table header-row="true">
@@ -144,14 +142,142 @@ Chapter11_05.cpp → Worker
 Worker.cpp       → Timer
 Worker.h         ✕ Timer
 ```
+# 컨테이너 클래스를 만들며 다시 확인한 것
+## 생성자
+- 생성자의 괄호 안에는 객체 이름이 아니라 외부에서 전달받을 값이 들어간다.
+- 생성 중인 객체는 따로 전달하지 않아도 내부적으로 **this**를 통해 알 수 있다.
+- 기본 생성자, 길이 생성자, initializer-list 생성자는 각각 빈 객체, 지정된 길이, 여러 값을 가진 객체를 만든다.
+- **new int(length)**는 값이 length인 정수 한 개이고, **new int\[length\]**는 정수 length개다.
+## initializer-list
+- 여러 값을 중괄호로 받으려면 **std::initializer_list\<int\>** 생성자가 필요하다.
+- initializer-list는 값들을 직접 소유하지 않고 임시 목록을 바라본다.
+- 목록의 주소를 보관하지 않고 값을 **m_data**로 복사해야 한다.
+- 소괄호의 5는 길이 5, 중괄호의 5는 값 5 하나로 해석될 수 있다.
+## 소멸자와 reset
+- 소멸자에는 멤버 초기화 리스트를 사용할 수 없다. **delete\[\]** 같은 실행문은 몸체에 작성한다.
+- **new\[\]**로 할당했다면 반드시** delete\[\]**로 해제해야 한다.
+- 포인터에 **nullptr**만 대입하면 메모리는 해제되지 않고 주소만 잃어버려 메모리 누수가 생긴다.
+- 소멸자는 객체의 수명이 끝날 때 자원을 정리한다.
+- **reset**은 자원을 정리한 뒤 같은 객체를 빈 상태로 계속 사용할 수 있게 한다.
+## 포인터
+- *intArray ptr = &arr*에서 **&arr**는 arr 객체 전체의 주소다.
+- **new_data**는 새 배열 주소를 임시로 보관하는 지역 포인터 변수다.
+- 해제된 메모리 주소를 계속 가지고 있는 포인터는 댕글링 포인터.
 ## 💻 코드 스니펫
 ```cpp
-// 직접 따라 친 코드 중 기억할 것
+class intArray
+{
+private:
+    int m_length;
+    int* m_data;
+
+public:
+    // Constructos
+    intArray()
+        : m_length(0), m_data(nullptr)
+    {}
+
+    intArray(const int length)
+        : m_length(length),
+        m_data(new int[length]{})
+    {}
+
+    intArray(const std::initializer_list<int>& list)
+        : intArray()
+    {
+        initialize(static_cast<int>(list.size()));
+        int index = 0;
+
+        for (const int value : list)
+        {
+            m_data[index] = value;
+            ++index;
+        }
+    }
+
+    // Destructors
+    ~intArray() { delete[] m_data; }
+
+    // reset
+    void reset()
+    {
+        delete[] m_data;
+        m_data = nullptr;
+        m_length = 0;
+    }
+
+    // initialize()
+    void initialize(const int length)
+    {
+        reset();
+
+        if (length <= 0)
+            return;
+
+        m_data = new int[length] {};
+        m_length = length;
+    }
+
+    // insertBefore
+    void insertBefore(const int& value, const int& ix)
+    {
+        if (ix <0 || ix > m_length)
+            return;
+
+        int* new_data = new int[m_length + 1] {};
+        for (int i = 0; i < ix; ++i) { new_data[i] = m_data[i]; }
+        new_data[ix] = value;
+        for (int i = ix; i < m_length; ++i ) { new_data[i + 1] = m_data[i]; }
+
+        delete[] m_data;
+        m_data = new_data;
+        m_length += 1;
+    }
+
+    // remove(const int & ix);
+    void remove(const int& ix)
+    {
+        if (ix <0 || ix >= m_length)
+            return;
+
+        if (m_length == 1)
+        {
+            reset();
+            return;
+        }
+
+        int* new_data = new int[m_length - 1] {};
+        for (int i = 0; i < ix; ++i) { new_data[i] = m_data[i]; }
+        for (int i = ix + 1; i < m_length; ++i) { new_data[i - 1] = m_data[i]; }
+
+        delete[] m_data;
+        m_data = new_data;
+        m_length -= 1;
+    }
+
+    //push_back
+    void push_back(const int& value)
+    {
+        insertBefore(value, m_length);
+    }
+
+    //print
+    void print() const
+    {
+        for (int i = 0; i < m_length; ++i)
+        {
+            cout << m_data[i] << ' ';
+        }
+
+        cout << '\n';
+    }
+
+};
 ```
 ## 🔥 헷갈린 것들 / 질문
 -
 ## ✅ 복습 체크
 - [x] 강의 완주
 - [x] 코드 직접 따라 침
-- [ ] 복습 1회
+- [x] 복습 1회
 - [ ] 복습 2회 (OOP 핵심 섹션은 2회 복습)
