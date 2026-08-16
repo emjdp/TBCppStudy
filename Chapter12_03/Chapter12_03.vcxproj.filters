@@ -15,19 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Chapter12_02.cpp">
+    <ClCompile Include="Chapter12_03.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Student.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Teacher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Person.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
