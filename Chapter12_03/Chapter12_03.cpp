@@ -32,9 +32,41 @@ public:
     }
 };
 
+
+class A
+{
+public:
+    A(int a)
+    {
+        cout << "A: " << a << endl;
+    }
+};
+
+class B : public A
+{
+public:
+    B(int a, double b)
+        : A(a)
+    {
+        cout << "B : " << b << endl;
+    }
+};
+
+class C : public B
+{
+public:
+    C(int a, double b, char c)
+        : B(a, b)
+    {
+        cout << "C : " << c << endl;
+    }
+};
+
 int main()
 {
-    Child c1; // Mother 생성자 후 Child 생성자. // 사실상 
+    Child c1;
+
+    C c(1024, 3.14, 'a');
 
     return 0;
 }

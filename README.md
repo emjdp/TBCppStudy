@@ -10,7 +10,7 @@
 
 </div>
 
-> **현재 진도:** 섹션 1~11 강의 완료 · 섹션 12 진행 중
+> **현재 진도:** 섹션 1~12 강의 완료 · 섹션 13 진행 중
 >
 > 기록은 공부를 돕는 수단으로만 사용하고, 이해하고 직접 구현하는 데 집중합니다.
 
@@ -69,6 +69,5 @@ fix: correct chapter example
 
 ## GitHub activity
 
-아래 애니메이션은 이 저장소가 아니라 GitHub 계정 전체의 공개 기여 활동을 보여주는 보조 지표입니다.
 
 ![GitHub contribution snake](https://raw.githubusercontent.com/emjdp/TBCppStudy/readme-visuals/github-snake.svg)
