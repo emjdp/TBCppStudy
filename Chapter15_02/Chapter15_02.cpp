@@ -1,34 +1,6 @@
----
-강의 수: 6
-상태: 진행 중
-섹션 번호: 15
-섹션명: 섹션 15. 예외 처리
-완료일: null
-완료한 강의 수: 2
-중요도: ⭐ 중요
-진도율: 33
-총 시간: 1시간 8분
----
+// Chapter15_02.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
-# 섹션 15. 예외 처리
-
-## 📝 핵심 개념 정리
-### 예외처리의 기본
-```cpp
-  try
-  {
-      if (x < 0.0) throw std::string("Negative input");
-
-      cout << std::sqrt(x) << endl;
-  }
-  catch (std::string error_message)
-  {
-      cout << error_message << endl;
-  }
-```
-throw를 받아줄 catch가 없으면 런타임 에러 발생
-### 예외 처리와 스택 되감기
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -94,7 +66,7 @@ int main()
     {
         cerr << "main caught int exception" << endl;
     }
-
+    
     //uncaught exceptions
     catch (...)
     {
@@ -106,14 +78,4 @@ int main()
 
     return 0;
 }
-```
-## 💻 코드 스니펫
-```cpp
-// 직접 따라 친 코드 중 기억할 것
-```
-## 🔥 헷갈린 것들 / 질문
--
-## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
+

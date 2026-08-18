@@ -137,4 +137,21 @@
   <Project Path="Chapter13_03/Chapter13_03.vcxproj" Id="d3de50aa-9615-4553-a93a-c1c2c20dc8c7" />
   <Project Path="Chapter13_04/Chapter13_04.vcxproj" Id="51f8e54d-69f2-4e1d-b350-19a520bc6a2f" />
   <Project Path="Chapter13_05/Chapter13_05.vcxproj" Id="55863cb2-2035-40d0-8e3f-9c3687ded0dd" />
+  <Project Path="Chapter13_06/Chapter13_06.vcxproj" Id="08b6d3ef-1689-44d0-bf56-e04d3035364a" />
+  <Project Path="Chapter13_07/Chapter13_07.vcxproj" Id="fcd3a6ad-25a9-407a-92ac-2885f5e40c4e" />
+  <Project Path="Chapter13_08/Chapter13_08.vcxproj" Id="a6e8dd10-b303-480d-a10f-ff37ddd3a7d2" />
+  <Project Path="Chapter13_09/Chapter13_09.vcxproj" Id="8a322103-5317-4d89-92d9-1ea647d36e2a" />
+  <Project Path="Chapter13_10/Chapter13_10.vcxproj" Id="785fd606-fff6-4bf4-810f-09530e7e8bba" />
+  <Project Path="Chapter13_11/Chapter13_11.vcxproj" Id="3e4b76c3-b3e0-4e1b-9a18-56ff6c70da95" />
+  <Project Path="Chapter14_01/Chapter14_01.vcxproj" Id="d6988bcc-bad2-4b12-8a1c-69e3f22c9a61" />
+  <Project Path="Chapter14_02/Chapter14_02.vcxproj" Id="7e4f3a0c-aa76-451d-ad43-3f0cee491a0d" />
+  <Project Path="Chapter14_03/Chapter14_03.vcxproj" Id="3875f7d9-575c-43c0-bf0f-3a2fab46bf45" />
+  <Project Path="Chapter14_04/Chapter14_04.vcxproj" Id="227ab4a5-b5e0-4490-94ce-57290905237e" />
+  <Project Path="Chapter14_05/Chapter14_05.vcxproj" Id="d199b35c-9e09-436f-bc89-cd4655f112b1" />
+  <Project Path="Chapter14_06/Chapter14_06.vcxproj" Id="d33293f0-df30-4ddf-8cb9-5f7776675eeb" />
+  <Project Path="Chapter14_07/Chapter14_07.vcxproj" Id="b771397f-177f-4080-be20-eae8f0fd39b7" />
+  <Project Path="Chapter14_08/Chapter14_08.vcxproj" Id="dd70808a-d2a2-4453-ab5a-80d8b7be8006" />
+  <Project Path="Chapter15_01/Chapter15_01.vcxproj" Id="43226af5-dbfb-412d-bd42-36bc0eecc294" />
+  <Project Path="Chapter15_02/Chapter15_02.vcxproj" Id="b8cf17ab-3efa-480e-8798-6c088e7e430b" />
+  <Project Path="Chapter15_03/Chapter15_03.vcxproj" Id="47d89f8d-f612-4a9b-a427-e5dbd32348e4" />
 </Solution>

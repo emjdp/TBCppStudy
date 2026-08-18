@@ -28,7 +28,8 @@ int main()
     cout << "0 : add, 1 : subtract, 2 : multiply" << endl;
     cin >> op;
 
-    int result;
+    //static binding
+/*    int result;
     switch (op)
     {
     case 0: result = add(x, y); break;
@@ -36,7 +37,18 @@ int main()
     case 2: result = multiply(x, y); break;
     }
 
-    cout << result << endl;
+    cout << result << endl;*/
+
+    //dynamic binding
+    int(*func_ptr)(int, int) = nullptr;
+    switch (op)
+    {
+    case 0: func_ptr = add; break;
+    case 1: func_ptr = subtract; break;
+    case 2: func_ptr = multiply; break;
+    }
+
+    cout << func_ptr(x, y) << endl;
 
     return 0;
 }
