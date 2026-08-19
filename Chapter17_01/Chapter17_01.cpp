@@ -1,20 +1,17 @@
----
-강의 수: 3
-상태: 진행 중
-섹션 번호: 17
-섹션명: 섹션 17. 표준 템플릿 라이브러리 (STL)
-완료일: null
-완료한 강의 수: 1
-중요도: 기본
-진도율: 33
-총 시간: 40분
----
+// Chapter17_01.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
-# 섹션 17. 표준 템플릿 라이브러리 (STL)
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <set>
+#include <map>
+#include <string>
+#include <stack>
+#include <queue>
 
-## 📝 핵심 개념 정리
-### 컨테이너
-```cpp
+using namespace std;
+
 void sequence_containers()
 {
     // vector
@@ -138,14 +135,11 @@ void container_adapters()
         }
     }
 }
-```
-## 💻 코드 스니펫
-```cpp
-// 직접 따라 친 코드 중 기억할 것
-```
-## 🔥 헷갈린 것들 / 질문
--
-## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
+
+int main()
+{
+    //sequence_containers();
+    //associative_containers();
+    //container_adapters();
+    return 0;
+}
