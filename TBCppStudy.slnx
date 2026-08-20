@@ -165,4 +165,5 @@
   <Project Path="Chapter16_06/Chapter16_06.vcxproj" Id="b0d68d83-4a24-4224-89a6-77fa55ebcf77" />
   <Project Path="Chapter16_07/Chapter16_07.vcxproj" Id="59f8a085-62d4-4343-86e5-79a17f1d258d" />
   <Project Path="Chapter17_01/Chapter17_01.vcxproj" Id="f9f056e6-3661-457b-9339-b4bd8955658b" />
+  <Project Path="Chapter17_02/Chapter17_02.vcxproj" Id="c24efcc2-6dc1-44ad-8421-927105839820" />
 </Solution>
