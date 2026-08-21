@@ -1,12 +1,15 @@
 ---
 강의 수: 3
-상태: 진행 중
+상태: 완료
 섹션 번호: 17
 섹션명: 섹션 17. 표준 템플릿 라이브러리 (STL)
-완료일: null
-완료한 강의 수: 1
+완료일:
+  end: null
+  start: 2026-08-21
+  time_zone: null
+완료한 강의 수: 3
 중요도: 기본
-진도율: 33
+진도율: 100
 총 시간: 40분
 ---
 
@@ -139,6 +142,84 @@ void container_adapters()
     }
 }
 ```
+### STL 반복자
+```cpp
+#include <iostream>
+#include <vector>
+#include <list>
+#include <set>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+	vector<int> container; // list set map ...
+	for (int i = 0; i < 10; ++i)
+		container.push_back(i);
+
+	vector<int>::const_iterator itr;
+	itr = container.begin();
+	while (itr != container.end())
+	{
+		cout << *itr << " ";
+
+		++itr;
+	}
+	cout << endl;
+
+	for (auto itr = container.begin(); itr != container.end(); ++itr)
+		cout << *itr << " ";
+
+	return 0;
+}
+```
+### STL 알고리즘
+```cpp
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+
+int main()
+{
+	using namespace std;
+
+	vector<int> container;
+	for (int i = 0; i < 10; ++i)
+		container.push_back(i);
+
+	//auto itr = li.begin();
+	// list<int>::const_iterator itr;
+	auto itr = min_element(container.begin(), container.end());
+	cout << *itr << endl;
+
+	itr = max_element(container.begin(), container.end());
+	cout << *itr << endl;
+
+	cout << endl;
+
+	itr = find(container.begin(), container.end(), 3);
+	container.insert(itr, 128);
+
+	for (auto& e : container) cout << e << " ";
+	cout << endl;
+
+	sort(container.begin(), container.end());
+	//li.sort();
+
+	for (auto& e : container) cout << e << " ";
+	cout << endl;
+
+	reverse(container.begin(), container.end());
+	//li.reverse();
+
+	for (auto& e : container) cout << e << " ";
+	cout << endl;
+
+	return 0;
+}
+```
 ## 💻 코드 스니펫
 ```cpp
 // 직접 따라 친 코드 중 기억할 것
@@ -146,6 +227,6 @@ void container_adapters()
 ## 🔥 헷갈린 것들 / 질문
 -
 ## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
+- [x] 강의 완주
+- [x] 코드 직접 따라 침
 - [ ] 복습 1회

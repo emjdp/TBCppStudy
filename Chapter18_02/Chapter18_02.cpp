@@ -1,21 +1,6 @@
----
-강의 수: 5
-상태: 진행 중
-섹션 번호: 18
-섹션명: 섹션 18. std::string 문자열 클래스
-완료일: null
-완료한 강의 수: 3
-중요도: 기본
-진도율: 60
-총 시간: 54분
----
+// Chapter18_02.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
-# 섹션 18. std::string 문자열 클래스
-
-## 📝 핵심 개념 정리
-wstring으로 여러나라말 출력
-### std::string의 여러가지 생성자들과 형변환
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -67,38 +52,4 @@ int main()
     std::cout << f << std::endl;
     return 0;
 }
-```
-### std::string 길이와 용량
-```cpp
-#include <iostream>
-#include <string>
 
-using namespace std;
-
-int main()
-{
-    //string my_str("");
-    string my_str("0123456789");
-    my_str.reserve(1000);
-
-    cout << my_str.length() << endl;
-
-    cout << std::boolalpha;
-    cout << my_str.empty() << endl;
-    cout << my_str.size() << endl;
-    cout << my_str.capacity() << endl;
-    cout << my_str.max_size() << endl;
-
-    return 0;
-}
-```
-## 💻 코드 스니펫
-```cpp
-// 직접 따라 친 코드 중 기억할 것
-```
-## 🔥 헷갈린 것들 / 질문
--
-## ✅ 복습 체크
-- [ ] 강의 완주
-- [ ] 코드 직접 따라 침
-- [ ] 복습 1회
