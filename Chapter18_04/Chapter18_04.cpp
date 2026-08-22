@@ -11,6 +11,12 @@ int main()
 {
     string my_str("abcdefg");
 
+    cout << my_str.c_str() << endl;
+    const char* arr = my_str.c_str();
+    cout << arr[6] << endl;
+    cout << arr[7] << endl;
+    cout << (int)arr[7] << endl;
+
     try
     {
         //my_str[100] = 'X';
