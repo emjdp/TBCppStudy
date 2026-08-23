@@ -10,9 +10,26 @@
 
 </div>
 
-> **현재 진도:** 섹션 1~18 강의 완료 · 섹션 19 3/7강 · 섹션 21 강의 완료
+> **현재 진도:** 섹션 1~21 강의 완료 · 전체 과정 완강
 >
 > 기록은 공부를 돕는 수단으로만 사용하고, 이해하고 직접 구현하는 데 집중합니다.
+
+## Course completion
+
+<table>
+  <tr>
+    <td>
+      <a href="assets/certificate.png">
+        <img src="assets/certificate.png" width="260" alt="홍정모의 따라하며 배우는 C++ 이수증">
+      </a>
+    </td>
+    <td>
+      <strong>✅ Course completed</strong><br>
+      홍정모의 따라하며 배우는 C++<br>
+      2026.08.23 · 48시간 27분
+    </td>
+  </tr>
+</table>
 
 ## Study activity
 

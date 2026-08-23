@@ -175,5 +175,17 @@
   <Project Path="Chapter19_01/Chapter19_01.vcxproj" Id="3acea369-f188-4d36-b19a-ca4024e140ca" />
   <Project Path="Chapter19_02/Chapter19_02.vcxproj" Id="549189be-12a1-46af-a3c2-db011d33e686" />
   <Project Path="Chapter19_03/Chapter19_03.vcxproj" Id="57c89587-3c0e-4832-a045-d3fdbf8b48b3" />
+  <Project Path="Chapter19_04/Chapter19_04.vcxproj" Id="8f275b4d-6dba-4adb-a9ab-8d81148ef79b" />
+  <Project Path="Chapter19_05/Chapter19_05.vcxproj" Id="3f59ac99-6f6b-454d-999e-8a2d843c4bbf" />
+  <Project Path="Chapter19_06/Chapter19_06.vcxproj" Id="e5050608-d23f-4c29-9d88-ce2cdb2f03b1" />
+  <Project Path="Chapter19_07/Chapter19_07.vcxproj" Id="13e0b0dc-1d59-4ecd-b9df-41c61fa585a8" />
+  <Project Path="Chapter20_01/Chapter20_01.vcxproj" Id="15719b02-cbad-49b7-a0e4-94cbda7b8fe4" />
+  <Project Path="Chapter20_02/Chapter20_02.vcxproj" Id="6a54f1a6-5cce-4111-ba57-cf7ee4229316" />
+  <Project Path="Chapter20_03/Chapter20_03.vcxproj" Id="a4616903-094a-4eff-b854-8bccd3163c88" />
+  <Project Path="Chapter20_04/Chapter20_04.vcxproj" Id="fb39823a-d60b-4b6f-a5cf-a99eb4158d8c" />
+  <Project Path="Chapter20_05/Chapter20_05.vcxproj" Id="69fb64a5-45a4-47b5-80d2-1552daed2f3f" />
+  <Project Path="Chapter20_06/Chapter20_06.vcxproj" Id="1651d7f0-023b-43ab-9a4f-7800aa999342" />
+  <Project Path="Chapter20_07/Chapter20_07.vcxproj" Id="30d6b3e4-e429-453e-821d-f2e6c8102cea" />
+  <Project Path="Chapter20_08/Chapter20_08.vcxproj" Id="5c8a8a36-8bc6-4e24-b939-c94a34de8481" />
   <Project Path="Chapter21_01/Chapter21_01.vcxproj" Id="e3cf8389-c0e3-497d-b27f-942926621dcd" />
 </Solution>
